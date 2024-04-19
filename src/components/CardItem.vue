@@ -48,18 +48,6 @@
           @click="isDeleteCardDialogOpen = true" />
       </template>
     </v-tooltip>
-    <v-tooltip text="Сортировка по рейтингу">
-      <template v-slot:activator="{ props }">
-        <v-btn
-          v-bind="props"
-          icon="mdi-sort"
-          density="compact"
-          variant="tonal"
-          class="sort-btn"
-          color="blue"
-          @click="sortList" />
-      </template>
-    </v-tooltip>
 
     <img :src="props.card.image" alt="изображение товара" />
     <div class="info">
@@ -162,11 +150,6 @@
       secondList.value = secondList.value.filter((card) => card.id !== props.card.id);
     }
   }
-
-  function sortList() {
-    getLocalCards();
-    cards = cards.value.sort((a, b) => b.rating.rate - a.rating.rate);
-  }
 </script>
 
 <style lang="scss" scoped>
@@ -187,7 +170,6 @@
       right: 20px;
       top: 20px;
     }
-
     .to-right-btn {
       position: absolute;
       right: 20px;
@@ -197,11 +179,6 @@
       position: absolute;
       right: 20px;
       top: 100px;
-    }
-    .sort-btn {
-      position: absolute;
-      right: 20px;
-      top: 140px;
     }
     .delete-btn {
       position: absolute;
